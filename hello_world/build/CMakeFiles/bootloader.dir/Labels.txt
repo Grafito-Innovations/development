@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/abel/Desktop/hello_world/build/CMakeFiles/bootloader
+/home/abel/Desktop/hello_world/build/CMakeFiles/bootloader.rule
+/home/abel/Desktop/hello_world/build/CMakeFiles/bootloader-complete.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/abel/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

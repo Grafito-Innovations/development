@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/esp-idf/micro_ros_espidf_component/CMakeFiles/libmicroros_project"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/esp-idf/micro_ros_espidf_component/CMakeFiles/libmicroros_project.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/esp-idf/micro_ros_espidf_component/CMakeFiles/libmicroros_project-complete.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-build.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-configure.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-download.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-install.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-mkdir.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-patch.rule"
+		},
+		{
+			"file" : "/home/abel/Desktop/hello_world/build/libmicroros-prefix/src/libmicroros_project-stamp/libmicroros_project-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libmicroros_project"
+		],
+		"name" : "libmicroros_project"
+	}
+}
