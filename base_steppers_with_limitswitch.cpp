@@ -79,7 +79,7 @@ extern "C" void IRAM_ATTR limit_switch_isr_handler(void* arg)
     int level = gpio_get_level(LIMIT_SWITCH_GPIO);
     if (level == 1) {
         // Object is present
-		// don't write any print statement in isr
+		// don't write any print statement in isr  
 		stepper->forceStopAndNewPosition(0);
     stepper2->forceStopAndNewPosition(0);
         a = 1;
@@ -200,11 +200,22 @@ extern "C" void topstepperTask(void *pvParameters) {
 	  if(a == 1){
         printf("Object x is present!\n");
 		    NewSetpoint = 0;
-        a = 0;}
+        a = 0;
+        gpio_intr_disable(LIMIT_SWITCH_GPIO); }
+
     if(a3 == 1){
         printf("Object y is present!\n");
         NewSetpoint3 = 0;
-        a3 = 0;}    
+        a3 = 0;
+        gpio_intr_disable(LIMIT_SWITCH_GPIO3); } 
+
+    if (stepper->getCurrentPosition()<-3000){
+      gpio_intr_enable(LIMIT_SWITCH_GPIO);
+    } 
+
+    if (stepper3->getCurrentPosition()<-3000){
+      gpio_intr_enable(LIMIT_SWITCH_GPIO3);
+    }     
 
       stepper->setSpeedInHz(newSpeedInHz);       // 500 steps/s
       stepper->setAcceleration(newAcceleration);    // 100 steps/s²  
@@ -338,10 +349,11 @@ extern "C" void app_main() {
 
 	// Configure GPIO pin for limit switch
 	gpio_config_t io_conf;
-	io_conf.intr_type = GPIO_INTR_ANYEDGE; // Trigger on any edge
+	io_conf.intr_type = GPIO_INTR_POSEDGE; // Trigger on any edge
 	io_conf.pin_bit_mask = (1ULL << LIMIT_SWITCH_GPIO);
 	io_conf.mode = GPIO_MODE_INPUT;
-	io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+  io_conf.pull_up_en = GPIO_PULLUP_DISABLE;
+  io_conf.pull_down_en = GPIO_PULLDOWN_ENABLE;
 	gpio_config(&io_conf);
 
 	// Register ISR for limit switch GPIO pin
@@ -350,10 +362,11 @@ extern "C" void app_main() {
 
 	// Configure GPIO pin for limit switch
 	gpio_config_t io_conf3;
-	io_conf3.intr_type = GPIO_INTR_ANYEDGE; // Trigger on any edge
+	io_conf3.intr_type = GPIO_INTR_POSEDGE; // Trigger on any edge
 	io_conf3.pin_bit_mask = (1ULL << LIMIT_SWITCH_GPIO3);
 	io_conf3.mode = GPIO_MODE_INPUT;
-	io_conf3.pull_up_en = GPIO_PULLUP_ENABLE;
+  io_conf3.pull_up_en = GPIO_PULLUP_DISABLE;
+  io_conf3.pull_down_en = GPIO_PULLDOWN_ENABLE;
 	gpio_config(&io_conf3);
 
 	// Register ISR for limit switch GPIO pin
