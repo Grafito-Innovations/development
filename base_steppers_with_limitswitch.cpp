@@ -60,10 +60,10 @@ int32_t data[3] = {0, 0, 0};
 int current_step_position;
 int current_step_position2;
 int current_step_position3;
-int NewSetpoint = 0; // intial pos to 0 (make it near to the bottom), at far end -835000 for base not for top stepper
+int NewSetpoint = 0; // intial pos to 0 (make it near to the bottom), at far end -750000 for base not for top stepper
 int newSpeedInHz = 2000;
 int newAcceleration = 1000;
-int NewSetpoint3 = 0; // intial pos to 0 (make it near to the bottom), at far end -845000 for base not for top stepper
+int NewSetpoint3 = 0; // intial pos to 0 (make it near to the bottom), at far end -770000 for base not for top stepper
 
 int new_msg = 0;
 int prev_msg = 0;
