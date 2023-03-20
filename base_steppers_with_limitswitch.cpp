@@ -361,7 +361,7 @@ extern "C" void app_main() {
 
 
 	// Configure GPIO pin for limit switch
-	gpio_config_t io_conf3;
+	gpio_config_t io_conf3;	
 	io_conf3.intr_type = GPIO_INTR_POSEDGE; // Trigger on any edge
 	io_conf3.pin_bit_mask = (1ULL << LIMIT_SWITCH_GPIO3);
 	io_conf3.mode = GPIO_MODE_INPUT;
@@ -371,8 +371,11 @@ extern "C" void app_main() {
 
 	// Register ISR for limit switch GPIO pin
 	gpio_isr_handler_add(LIMIT_SWITCH_GPIO3, limit_switch_isr_handler3, NULL); 
+	
+	gpio_intr_disable(LIMIT_SWITCH_GPIO);
+        gpio_intr_disable(LIMIT_SWITCH_GPIO3);
 
   xTaskCreate(topstepperTask, "topstepperTask", 20000, NULL, 1, NULL); 
-  xTaskCreate(wifiTask, "wifiTask", 10000, NULL, 1, NULL);
+  xTaskCreate(wifiTask, "wifiTask", 10000, NULL, 0, NULL);
   engine.init();
 }
